@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-wakawaka',
-    version='0.4.dev1',
+    version='0.4.gojomo1',
     description='A super simple wiki app written in Python using the Django Framwork',
     long_description=open('README.rst').read(),
     author='Martin Mahner',
     author_email='martin@mahner.org',
-    url='http://github.com/bartTC/django-wakawaka/tree/master',
+    url='http://github.com/gojomo/django-wakawaka/tree/master',
     packages=find_packages('src', exclude=('wakawaka_project',)),
     package_dir = {'': 'src'},
     classifiers=[
