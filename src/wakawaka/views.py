@@ -138,7 +138,7 @@ def edit(request, slug, rev_id=None, template_name='wakawaka/edit.html',
         page = WikiPage(slug=slug)
         page.is_initial = True
         rev = None
-        initial = {'content': _('Describe your new page %s here...' % slug),
+        initial = {'content': '',
                    'message': _('Initial revision')}
 
     # Don't display the delete form if the user has nor permission
