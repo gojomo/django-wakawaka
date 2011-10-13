@@ -154,9 +154,10 @@ def edit(request, slug, rev_id=None, template_name='wakawaka/edit.html',
 
     # Page add/edit form
     form = wiki_page_form(initial=initial)
+    show_preview = request.POST.get('preview')
     if request.method == 'POST':
         form = wiki_page_form(data=request.POST)
-        if form.is_valid():
+        if not show_preview and form.is_valid():
             # Check if the content is changed, except there is a rev_id and the
             # user possibly only reverted the HEAD to it
             if not rev_id and initial['content'] == form.cleaned_data['content']:
@@ -193,6 +194,7 @@ def edit(request, slug, rev_id=None, template_name='wakawaka/edit.html',
                 return HttpResponseRedirect(redirect_to)
 
     template_context = {
+        'show_preview' : show_preview,
         'form': form,
         'delete_form': delete_form,
         'page': page,
