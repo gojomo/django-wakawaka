@@ -7,7 +7,7 @@ setup(
     long_description=open('README.rst').read(),
     author='Martin Mahner',
     author_email='martin@mahner.org',
-    url='http://github.com/gojomo/django-wakawaka/',
+    url='http://github.com/bartTC/django-wakawaka/',
     packages=find_packages('src', exclude=('wakawaka_project',)),
     package_dir = {'': 'src'},
     classifiers=[
