@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
+from django.conf import settings
 
 class WikiPage(models.Model):
     slug = models.CharField(_('slug'), max_length=255)
@@ -35,7 +36,7 @@ class Revision(models.Model):
     page = models.ForeignKey(WikiPage, related_name='revisions')
     content = models.TextField(_('content'))
     message = models.TextField(_('change message'), blank=True)
-    creator = models.ForeignKey(User, blank=True, null=True, related_name='wakawaka_revisions')
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, related_name='wakawaka_revisions')
     creator_ip = models.IPAddressField(_('creator ip'))
     created = models.DateTimeField(_('created'), auto_now_add=True)
     modified = models.DateTimeField(_('modified'), auto_now=True)
